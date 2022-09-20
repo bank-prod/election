@@ -1,0 +1,27 @@
+{% extends 'layout/default.html' %}
+{% block title %} Home {% endblock %}
+{% block body %}
+	{% with messages = get_flashed_messages(with_categories=true) %}
+	  {% if messages %}
+	  <div class=flashes>
+	  	{% for category, message in messages %}
+	  	<div class="alert alert-{{ category }}" role="alert">
+	  		{{ message }}
+	  	</div>
+	  	{% endfor %}
+	  </div>
+	  {% endif %}
+	{% endwith %}
+	<h1>Election 2022</h1>
+	<p>Lorem ipsum dolor sit, amet consectetur, adipisicing elit. Soluta rem repudiandae mollitia corrupti molestiae, exercitationem odit possimus, saepe? Sed eius est eligendi dolor dolorem fuga doloremque, quos explicabo illum quis illo a tenetur mollitia repudiandae quidem rerum, sapiente. Alias doloremque dolore rerum culpa ab esse quo quia a voluptatem? Tempore.</p>
+	<form action="{{url_for('vote_page')}}" method="post">
+		<div class="mb-3">
+			<label for="matricule" class="form-label">Matricule</label>
+			<input type="text" class="form-control" name ='matricule' id="matricule" aria-describedby="matriculeHelp">
+			<div id="matriculeHelp" class="form-text">Veuillez entrer votre numero matricule pour procedé au vote.</div>
+		</div>
+		
+		<button type="submit" class="btn btn-primary">Suivant</button>
+</form>
+	
+{% endblock %}
