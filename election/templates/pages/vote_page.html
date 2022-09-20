@@ -16,18 +16,17 @@
 	<p>Lorem ipsum dolor, sit amet, consectetur adipisicing elit. Saepe reprehenderit eligendi molestiae in quo voluptatibus unde perspiciatis quisquam consectetur. Fuga accusantium, iusto dolores aperiam sequi ratione a ad, illum aliquam, voluptatum consequuntur saepe! Quae odio consequatur sed officiis quisquam autem!</p><br>
 	<h3>List des candidats </h3>
 	<hr>
-	<form>
+	<form method="post" action="{{url_for('valider_vote', matricule_votan= votan.matricule)}}">
 		{% for post in posts %}
-
-		<h5>Nom du Post : {{post.nom}}</h5>
-		{% for candidature in post.candidatures %}
-			<div class="form-check">
-				<input class="form-check-input" type="radio" name="candidat" id="cand-{{candidature.votan.nom}}" value="{{candidature.votan.id}}">
-				<label class="form-check-label" for="cand-{{candidature.votan.nom}}">
-					{{candidature.votan.nom}} {{candidature.votan.prenom}}
-				</label>
-			</div>
-		{% endfor %}
+			<h5>Nom du Post : {{post.nom}}</h5>
+			{% for candidature in post.candidatures %}
+				<div class="form-check">
+					<input class="form-check-input" type="radio" name="candidat" id="cand-{{candidature.votan.nom}}" value="{{candidature.id}}">
+					<label class="form-check-label" for="cand-{{candidature.votan.nom}}">
+						{{candidature.votan.nom}} {{candidature.votan.prenom}}
+					</label>
+				</div>
+			{% endfor %}
 		{% endfor %}
 	<button type="submit" class="btn btn-primary">Submit</button>
 	</form>

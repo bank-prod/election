@@ -21,7 +21,7 @@ class Candidature(db.Model): # Many
 
 class Vote(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    votan_id = db.Column(db.Integer, db.ForeignKey('votan.id'),  nullable=False)
+    votan_id = db.Column(db.Integer, db.ForeignKey('votan.id'),  nullable=False, unique=True)
     candidature_id = db.Column(db.Integer, db.ForeignKey('candidature.id'),  nullable=False)
 
 

@@ -1,0 +1,21 @@
+{% extends 'layout/default.html' %}
+{% block title %} Vote {% endblock %}
+{% block body %}
+	{% with messages = get_flashed_messages(with_categories=true) %}
+	{% if messages %}
+	<div class=flashes>
+		{% for category, message in messages %}
+		<div class="alert alert-{{ category }}" role="alert">
+			{{ message }} vous avez voter {{candidature.votan.nom}} {{candidature.votan.prenom}} au poste de 
+			{{candidature.post.nom}}
+		</div>
+		{% endfor %}
+	</div>
+	{% endif %}
+	{% endwith %}
+	<h2>Election 2022</h2>
+	<p>Merci et à biento</p>
+	
+	
+	
+{% endblock %}
