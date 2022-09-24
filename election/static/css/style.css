@@ -1,3 +1,9 @@
 .MainContainer{
 	max-width: 60%;
 }
+
+@media screen and (max-width: 800px){
+.MainContainer{
+	max-width: 95%;
+}
+}
